@@ -45,12 +45,12 @@ def main():
             d['minAmount'] = item['grants'][0]['minAmount']
         except:
             d['minAmount'] = None
-        print(d)
+        # print(d)
         processed_items.append(d)
     # POST REQUESTS TO MAXIM_SERVICE
-    logging.warning(sys.argv)
-    logging.warning(f'{sys.argv[1]}:{sys.argv[2]}/postEvent')
-    rq.post(f'http://{sys.argv[1]}:{sys.argv[2]}/postEvent', data={'items': processed_items})
+    # logging.warning(sys.argv)
+    # logging.warning(f'{sys.argv[1]}:{sys.argv[2]}/postEvent')
+    rq.post(f'http://{sys.argv[1]}:{sys.argv[2]}/postEvent', json={'items': processed_items})
 
 
 if __name__ == '__main__':
