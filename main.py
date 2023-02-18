@@ -38,18 +38,19 @@ def main():
             'url': "https://grants.myrosmol.ru/events/" + item['ID']
         }
         try:
-            item['maxAmount'] = item.get['grants'][0]['maxAmount']
+            d['maxAmount'] = item['grants'][0]['maxAmount']
         except:
-            item['maxAmount'] = None
+            d['maxAmount'] = None
         try:
-            item['minAmount'] = item.get['grants'][0]['minAmount']
+            d['minAmount'] = item['grants'][0]['minAmount']
         except:
-            item['minAmount'] = None
+            d['minAmount'] = None
+        print(d)
         processed_items.append(d)
     # POST REQUESTS TO MAXIM_SERVICE
     logging.warning(sys.argv)
     logging.warning(f'{sys.argv[1]}:{sys.argv[2]}/postEvent')
-    rq.post(f'{sys.argv[1]}:{sys.argv[2]}/postEvent', data={'items': processed_items})
+    rq.post(f'http://{sys.argv[1]}:{sys.argv[2]}/postEvent', data={'items': processed_items})
 
 
 if __name__ == '__main__':

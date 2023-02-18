@@ -4,7 +4,7 @@ services:
   parser:
     build: .
     environment:
-      - server_host=${server_host}
-      - server_port=${server_port}
-    command: python3 main.py ${server_host} ${server_port}
+      - HOST=${HOST}
+      - PORT=${PORT}
+    command: python3 main.py ${HOST} ${PORT}
     restart: always
